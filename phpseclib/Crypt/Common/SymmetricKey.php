@@ -718,11 +718,11 @@ abstract class SymmetricKey
         if (!$this->usesIV()) {
             throw new \BadMethodCallException('This algorithm does not use an IV.');
         }
-
+/*
         if (strlen($iv) != $this->block_size) {
             throw new \LengthException('Received initialization vector of size ' . strlen($iv) . ', but size ' . $this->block_size . ' is required');
         }
-
+*/
         $this->iv = $this->origIV = $iv;
         $this->changed = true;
     }
@@ -2475,13 +2475,13 @@ abstract class SymmetricKey
         } else {
             $this->iv = $this->origIV;
         }
-
+/*
         if ($this->iv === false && !in_array($this->mode, [self::MODE_STREAM, self::MODE_ECB])) {
             if ($this->mode != self::MODE_GCM || !in_array($this->engine, [self::ENGINE_LIBSODIUM, self::ENGINE_OPENSSL_GCM])) {
                 throw new InsufficientSetupException('No IV has been defined');
             }
         }
-
+*/
         if ($this->key === false) {
             throw new InsufficientSetupException('No key has been defined');
         }
